@@ -1,0 +1,28 @@
+<mat-dialog-content>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="product-image">
+        <img [src]="product.imageUrl || '/assets/product.png'">
+      </div>
+    </div>
+    <div class="col-md-7">
+      <h3>{{ product.name }}</h3>
+      <p>{{ product.description }}</p>
+      <p class="price">{{ product.price | currency:'BRL' }}</p>
+      <p>
+        <mat-form-field class="qty-field">
+          <input type="number" matInput placeholder="Quantidade" [(ngModel)]="quantity">
+        </mat-form-field>
+      </p>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Fechar</button>
+  <button *ngIf="showGoToCartButton" mat-button color="primary" (click)="goToCart()">Ir para o carrinho</button>
+  <button mat-flat-button color="primary" (click)="addToCart()">
+    {{ addToCartButtonText }}
+    <mat-icon *ngIf="showCheckIcon">check_circle</mat-icon>
+  </button>
+</mat-dialog-actions>

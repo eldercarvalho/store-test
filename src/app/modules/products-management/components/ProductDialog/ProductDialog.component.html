@@ -1,0 +1,44 @@
+<h3>{{ title }}</h3>
+
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="image-input-file" [ngClass]="{ 'image-input-file--loaded': imageLoaded }">
+    <input #fileInput type="file" accept=".jpg,.png" (change)="onFileSelect($event)">
+    <mat-icon>add_a_photo</mat-icon>
+    <div #productImage></div>
+    <button type="button" mat-icon-button color="warn" (click)="removeImage($event)">
+       <mat-icon size="small">close</mat-icon>
+    </button>
+  </div>
+
+  <mat-form-field class="full-width">
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="true">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+    <mat-error *ngIf="true">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="full-width"  >
+    <mat-label>Preço</mat-label>
+    <input
+      matInput
+      currencyMask
+      [options]="{ prefix: '', thousands: '.', decimal: ',' }"
+      formControlName="price"
+      maxlength="10"
+    >
+    <mat-error *ngIf="true">Campo obrigatório.</mat-error>
+  </mat-form-field>
+
+  <mat-dialog-actions align="end">
+    <button type="button" mat-dialog-close mat-button>Cancelar</button>
+    <button type="submit" mat-flat-button color="primary" class="text-center">
+      <span *ngIf="!productsService.loading">{{ data.action === 'create' ? 'Cadastrar' : 'Salvar' }}</span>
+      <mat-spinner diameter="30" *ngIf="productsService.loading"></mat-spinner>
+    </button>
+  </mat-dialog-actions>
+</form>

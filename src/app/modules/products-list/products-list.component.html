@@ -1,0 +1,19 @@
+<h2 class="page-title">Vitrine</h2>
+
+<div class="empty-state" *ngIf="products.length === 0">
+  <img src="/assets/products-empty-state.png" alt="">
+  <p>Nenhum produto foi postado.</p>
+  <button mat-flat-button color="primary" routerLink="/">Ir para Gestão de Produtos</button>
+</div>
+
+<div class="row">
+  <div class="col-md-3" *ngFor="let product of products">
+    <mat-card class="product-card" (click)="showDetails(product)">
+      <img mat-card-image [src]="product.imageUrl || '/assets/product.png'" alt="">
+      <mat-card-content>
+        <p>{{ product.name }}</p>
+        <h2>{{ product.price | currency:'BRL' }}</h2>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

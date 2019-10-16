@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="mat-elevation-z6 fixed-toolbar">
+  <span>Shopping</span>
+
+  <span class="spacer"></span>
+
+  <button mat-button [routerLink]="['/']">
+    Gestão de Produtos
+  </button>
+
+  <button mat-button [routerLink]="['/products-list']">
+    Vitrine
+  </button>
+
+  <button mat-button [routerLink]="['/purchases']">
+    Compras
+  </button>
+
+  <button mat-button [routerLink]="['/cart']">
+    <mat-icon>shopping_cart</mat-icon>
+    Carrinho
+    <span *ngIf="cartLength > 0" class="cart-length-chip">{{ cartLength }}</span>
+  </button>
+</mat-toolbar>

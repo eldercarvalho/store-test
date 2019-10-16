@@ -1,0 +1,16 @@
+.fixed-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+.cart-length-chip {
+  display: inline-block;
+  background-color: #FFF;
+  color: #3f51b5;
+  font-size: 9px;
+  width: 15px;
+  height: 12px;
+  border-radius: 6px;
+  line-height: 12px;
+  text-align: center;
+}

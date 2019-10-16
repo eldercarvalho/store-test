@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #edf1f7;}
+
+
+.d-flex {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto !important;
+}
+
+.content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 1em;
+}
+h1, h2, h3, h4, h5 {
+  color: #656565;
+  font-weight: 500;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center
+}
+
+.empty-state {
+  text-align: center;
+  p {
+    color: #999;
+  }
+}
+p {
+  color: #656565;
+}
+
+button {
+  // padding-top: 3px 0;
+  mat-spinner {
+    margin: 3px auto;
+    circle {
+      stroke: #FFF !important;
+    }
+  }
+}

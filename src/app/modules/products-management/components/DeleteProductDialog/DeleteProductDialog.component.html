@@ -1,0 +1,9 @@
+<h3>Excluir Produto</h3>
+<p>Tem certeza que deseja excluir o produto {{ product?.name }}?</p>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-flat-button color="primary" (click)="deleteProduct()">
+    <span *ngIf="!productsService.loading">Excluir</span>
+    <mat-spinner diameter="30" *ngIf="productsService.loading"></mat-spinner>
+  </button>
+</mat-dialog-actions>
